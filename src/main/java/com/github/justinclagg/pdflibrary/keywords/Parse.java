@@ -33,7 +33,7 @@ public class Parse {
 		}
 	}
 
-	@RobotKeyword
+	@RobotKeyword("Verify that the given value exists in the parsed PDF.")
 	@ArgumentNames({ "expectedValue" })
 	public void pdfShouldContain(String expectedValue) {
 		Collection<String> values = data.values();

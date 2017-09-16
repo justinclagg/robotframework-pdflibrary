@@ -14,6 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<keywords.class>PDFLibrary</keywords.class>
 	</properties>
 
 	<scm>
@@ -52,5 +53,45 @@
 			<version>2.5</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.robotframework</groupId>
+				<artifactId>robotframework-maven-plugin</artifactId>
+				<version>1.4.7</version>
+				<executions>
+						<execution>
+							<id>html</id>
+							<phase>package</phase>
+							<goals>
+								<goal>libdoc</goal>
+							</goals>
+							<configuration>
+								<libdoc>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+									<outputFile>${keywords.class}.html</outputFile>
+									<libraryOrResourceFile>${keywords.class}</libraryOrResourceFile>
+								</libdoc>
+							</configuration>
+						</execution>
+						<execution>
+							<id>xml</id>
+							<phase>package</phase>
+							<goals>
+								<goal>libdoc</goal>
+							</goals>
+							<configuration>
+								<libdoc>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+									<outputFile>${keywords.class}.xml</outputFile>
+									<libraryOrResourceFile>${keywords.class}</libraryOrResourceFile>
+								</libdoc>
+							</configuration>
+						</execution>
+					</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
